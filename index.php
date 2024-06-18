@@ -45,10 +45,13 @@ $hotels = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-<h1>Lista di Hotel</h1>
-    <table>
+    <div class="container">
+        <h1>Lista di Hotel</h1>
+        <table class="table">
         <tr>
             <th>name</th>
             <th>description</th>
@@ -61,13 +64,21 @@ $hotels = [
         foreach($hotels as $hotel ) {
             echo "<tr>";
             foreach($hotel as $key => $value ){
-                echo "<td>{$value}</td>";
+                if($key=='parking' && $value==true)
+                    echo "<td>si</td>";
+                else if($key=='parking' && $value==false)
+                    echo "<td>no</td>";
+                else if($key=='distance_to_center')
+                    echo "<td>{$value} km</td>";
+                else
+                    echo "<td>{$value}</td>";     
             }
             echo "</tr>";
         }
-        
         ?>
-        
+
     </table>
+    </div>
+    
 </body>
 </html>
