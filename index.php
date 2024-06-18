@@ -37,8 +37,10 @@ $hotels = [
     ],
 ];
 $new_hotels = [];
-$parking = $_GET['parking'];
-$vote = $_GET['vote'];
+
+$parking = isset($_GET['parking']) ? $_GET['parking'] : null;
+$vote = isset($_GET['vote']) ? $_GET['vote'] : null;
+
 
 foreach ($hotels as $hotel) {
     if ($hotel['vote'] >= $vote) {
